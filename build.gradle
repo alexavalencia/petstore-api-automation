@@ -1,0 +1,56 @@
+plugins {
+    id "net.serenity-bdd.serenity-gradle-plugin" version "4.1.14"
+    id 'java'
+    id 'idea'
+}
+
+defaultTasks 'clean','test','aggregate'
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+
+ext {
+    slf4jVersion = '1.7.7'
+    serenityCoreVersion = '4.1.20'
+    junitVersion = '5.10.0'
+    assertJVersion = '3.23.1'
+    lombokVersion = '1.18.24'
+    logbackVersion = '1.2.11'
+    cucumber_junit_platform_engine_version="7.16.1"
+    junit_platform_suite_version="1.10.2"
+    json_schema_validator_version="5.3.1"
+
+}
+
+dependencies {
+    testImplementation "net.serenity-bdd:serenity-core:${serenityCoreVersion}",
+            "net.serenity-bdd:serenity-cucumber:${serenityCoreVersion}",
+            "net.serenity-bdd:serenity-junit5:${serenityCoreVersion}",
+             "net.serenity-bdd:serenity-rest-assured:${serenityCoreVersion}",
+            "net.serenity-bdd:serenity-ensure:${serenityCoreVersion}",
+            "org.junit.jupiter:junit-jupiter-api:${junitVersion}",
+            "org.junit.jupiter:junit-jupiter-engine:${junitVersion}",
+            "io.cucumber:cucumber-junit-platform-engine:${cucumber_junit_platform_engine_version}",
+            "org.junit.platform:junit-platform-suite:${junit_platform_suite_version}",
+            "io.rest-assured:json-schema-validator:${json_schema_validator_version}",
+            "org.assertj:assertj-core:${assertJVersion}",
+            "org.projectlombok:lombok:${lombokVersion}",
+            "ch.qos.logback:logback-classic:${logbackVersion}"
+}
+
+
+test {
+    useJUnitPlatform()
+    systemProperties System.getProperties()
+    testLogging.showStandardStreams = true
+}
+serenity {
+    reports = ["single-page-html"]
+}
+gradle.startParameter.continueOnFailure = true
+test.finalizedBy(aggregate)

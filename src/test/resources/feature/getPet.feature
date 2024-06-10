@@ -5,7 +5,7 @@ Feature:  Retrieve pet information
     Given user has access to the endpoint "GET_PET_BY_ID"
     When user makes a request to get the pet with id 2
     Then user should get the response code 200
-    And user validates the response with JSON schema "getPetSchema.json"
+    And user validates the response with JSON schema "getPetByIdSchema.json"
 
   Scenario: Invalid Id
     Given user has access to the endpoint "GET_PET_BY_ID"

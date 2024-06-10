@@ -89,3 +89,11 @@ Serenity will generate detailed reports in the target/serenity directory. Open i
 ```sh
  docker run -i dock-k6 run - <getPetByStatus-Stress.js 
 ```
+
+I conducted tests on the API responsible for retrieving animal data from the state. The GET method, which retrieves information from the database, can be impacted by performance due to handling large data volumes.
+
+Since this is our initial interaction with the API and we have no non-functional requirements, the tests aim to determine response times and the request capacity per second. This information will help define the requirements for the business owner.
+
+We will conduct load tests to ensure that 99.9% of response times are below 100ms and to identify failure points under a specific number of users.
+
+It's important to monitor the environment to analyze CPU and memory consumption, and to observe if any containers were restarted or new instances were created as the number of users increased.

@@ -1,6 +1,6 @@
 # Pet Store API Automation And Performace 
 
-This project demonstrates automated testing of the Pet Store API using a combination of Java, Serenity, RestAssured, and Cucumber. The primary focus is on the "Get Pet" APIs, ensuring they function correctly and meet the specified requirements.
+This project demonstrates automated testing of the Pet Store API using a combination of Java, Serenity, RestAssured, Gradel, and Cucumber. The primary focus is on the "Get Pet" APIs, ensuring they function correctly and meet the specified requirements.
 
 ## Project Structure
 - Java: The programming language used for the test implementation.
@@ -90,7 +90,7 @@ Serenity will generate detailed reports in the target/serenity directory. Open i
  docker run -i dock-k6 run - <getPetByStatus-Stress.js 
 ```
 
-I conducted tests on the API responsible for retrieving animal data from the state. The GET method, which retrieves information from the database, can be impacted by performance due to handling large data volumes.
+I conducted tests on the API responsible for retrieving pet data by the state. The GET method, which retrieves information from the database, can be impacted by performance due to handling large data volumes.
 
 Since this is our initial interaction with the API and we have no non-functional requirements, the tests aim to determine response times and the request capacity per second. This information will help define the requirements for the business owner.
 
@@ -99,6 +99,8 @@ We will conduct load tests to ensure that 99.9% of response times are below 100m
 It's important to monitor the environment to analyze CPU and memory consumption, and to observe if any containers were restarted or new instances were created as the number of users increased.
 
 ### Load
+![image](https://github.com/alexavalencia/petstore-api-automation/assets/14083095/a2941286-8acd-4983-b946-7c72e245d358)
+
 
 ### Stress
 

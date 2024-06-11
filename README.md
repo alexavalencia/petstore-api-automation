@@ -97,3 +97,10 @@ Since this is our initial interaction with the API and we have no non-functional
 We will conduct load tests to ensure that 99.9% of response times are below 100ms and to identify failure points under a specific number of users.
 
 It's important to monitor the environment to analyze CPU and memory consumption, and to observe if any containers were restarted or new instances were created as the number of users increased.
+
+### Load
+
+### Stress
+
+![image](https://github.com/alexavalencia/petstore-api-automation/assets/14083095/04af65cd-8424-4d91-b4e4-d68b24fb8b13)
+
